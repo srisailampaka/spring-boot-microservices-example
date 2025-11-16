@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: service1
+          uri: lb://service-1
+          predicates:
+            - Path=/service-1/**
+        - id: service2
+          uri: lb://service-2
+          predicates:
+            - Path=/service-2/**
+        - id: auth
+          uri: lb://auth-service
+          predicates:
+            - Path=/auth/**
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+server:
+  port: 8080
+
+jwt:
+  secret: changeit-changeit-changeit-changeit-0123456789
+
+gateway:
+  hmac:
+    secret: changeit-gw-hmac-shared-secret-0123456789

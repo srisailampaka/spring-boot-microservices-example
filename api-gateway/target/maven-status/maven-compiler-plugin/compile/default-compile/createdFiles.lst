@@ -1,0 +1,4 @@
+com\bank\gateway\GatewayApplication.class
+com\bank\gateway\security\GatewayJwtFilter.class
+com\bank\gateway\security\GatewayJwtGlobalFilter.class
+com\bank\gateway\security\GatewaySecurityConfig.class
