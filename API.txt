@@ -1,0 +1,13 @@
+$body = @{ username='admin'; password='admin' } | ConvertTo-Json; $login = Invoke-RestMethod -Method Post -Uri https://localhost:8090/auth/login -Body $body -ContentType 'application/json'; $login.token
+
+
+
+
+Perfect! The core microservices architecture is working:
+
+✅ JWT authentication with auth-service
+✅ API Gateway routing with JWT validation
+✅ Gateway injecting X-Auth-User header (see "user=testuser")
+✅ Service-1 and Service-2 responding
+✅ Eureka service discovery working
+✅ Load balancing configured
